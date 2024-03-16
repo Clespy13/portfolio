@@ -1,0 +1,29 @@
+{
+  "name": "portfolio",
+  "type": "module",
+  "version": "0.0.1",
+  "browsersList": [
+    "defaults"
+  ],
+  "scripts": {
+    "dev": "astro dev",
+    "start": "astro dev",
+    "build": "astro check && astro build",
+    "preview": "astro preview",
+    "astro": "astro"
+  },
+  "dependencies": {
+    "@astrojs/check": "^0.5.7",
+    "@astrojs/sitemap": "^3.1.1",
+    "astro": "^4.5.0",
+    "postcss": "^8.4.35",
+    "postcss-preset-env": "^9.5.0",
+    "typescript": "^5.4.2"
+  },
+  "devDependencies": {
+    "@astrojs/rss": "^4.0.5",
+    "@iconify-json/ic": "^1.1.17",
+    "@iconify-json/tabler": "^1.1.107",
+    "astro-icon": "^1.1.0"
+  }
+}

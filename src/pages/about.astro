@@ -1,0 +1,16 @@
+---
+import MainLayout from '../layouts/MainLayout.astro'
+import Link from '../components/Link.astro'
+---
+
+<MainLayout title = "About - Clément Fabien">
+    <section class:list={["container", "about"]} aria-label="About">
+        <img src="/images/headshot.jpg" alt="My head" width="200" height="330" />
+        <div class="content">
+            <h1 class="h1">Clément Fabien</h1>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsum ipsa eaque placeat assumenda exercitationem nisi similique, velit perspiciatis dolorum sapiente molestias porro dicta illo eum tenetur? Delectus iste reiciendis ipsum repudiandae, inventore commodi modi adipisci laudantium ea aspernatur odio laborum.</p>
+            <Link href='mailto:clement.fabien@clespy.fr' text='Contact Me!' style='primary'/>
+        </div>
+    </section>
+</MainLayout>
+

@@ -1,0 +1,32 @@
+---
+import MainLayout from '../layouts/MainLayout.astro'
+import Link from '../components/Link.astro'
+import PostCard from '../components/PostCard.astro'
+
+import { formatPosts } from '../js/utils'
+
+const allPosts = await Astro.glob("./blog/*.md")
+const formattedPosts = formatPosts(allPosts, {
+    limit: 3,
+});
+---
+
+<MainLayout title = "Clément FABIEN">
+    <section class:list={["container", "about"]} aria-label="About">
+        <img src="/images/headshot.jpg" alt="My head" width="200" height="330" />
+        <div class="content">
+            <h1 class="h1">Clément Fabien</h1>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsum ipsa eaque placeat assumenda exercitationem nisi similique, velit perspiciatis dolorum sapiente molestias porro dicta illo eum tenetur?</p>
+            <Link href='mailto:clement.fabien@clespy.fr' text='Contact Me!' style='secondary'/>
+        </div>
+    </section>
+    <section class="container" aria-label="Blog Posts">
+        <h2 class="h1">Posts</h2>
+        <div class="post-container">
+        {
+            formattedPosts.map((post) => <PostCard frontmatter={post.frontmatter} url={post.url} tagType="h3"/>)
+        }
+        </div>
+    </section>
+</MainLayout>
+
