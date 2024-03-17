@@ -1,0 +1,32 @@
+---
+import MainLayout from '../layouts/MainLayout.astro'
+import Card from '../components/Card.astro'
+---
+
+<MainLayout title = "Contact - Clément FABIEN">
+    <h2 class="h2">Contact me!</h2>
+    <ul role="list" class="link-card-grid">
+        <Card title="Contact me by mail!" href="mailto:clement.fabien@clespy.fr" />
+        <Card title="Follow me on linkedin!" href="https://www.linkedin.com/in/cl%C3%A9ment-fabien-9a698124b/" />
+    </ul>
+
+    <h2 class="h2">See my work!</h2>
+    <ul role="list" class="link-card-grid">
+        <Card title="Github" href="https://github.com/Clespy13" icon={{name: "mdi:github"}} />
+        <Card title="Gitlab" href="https://gitlab.com/clespy" icon={{name: "mdi:gitlab"}} />
+    </ul>
+</MainLayout>
+
+<style>
+    h2 {
+        text-align: center;
+        margin-bottom: 1em;
+        margin-top: 1em;
+    }
+    .link-card-grid {
+        display: grid;
+        grid-template-columns: auto auto;
+        gap: 100px;
+        padding: 0;
+    }
+</style>

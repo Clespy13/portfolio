@@ -23,6 +23,7 @@
   "devDependencies": {
     "@astrojs/rss": "^4.0.5",
     "@iconify-json/ic": "^1.1.17",
+    "@iconify-json/mdi": "^1.1.64",
     "@iconify-json/tabler": "^1.1.107",
     "astro-icon": "^1.1.0"
   }

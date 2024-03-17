@@ -2,6 +2,7 @@
 import MainLayout from '../layouts/MainLayout.astro'
 import Link from '../components/Link.astro'
 import PostCard from '../components/PostCard.astro'
+import { Icon } from 'astro-icon/components'
 
 import { formatPosts } from '../js/utils'
 
@@ -16,10 +17,22 @@ const formattedPosts = formatPosts(allPosts, {
         <img src="/images/headshot.jpg" alt="My head" width="200" height="330" />
         <div class="content">
             <h1 class="h1">Clément Fabien</h1>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsum ipsa eaque placeat assumenda exercitationem nisi similique, velit perspiciatis dolorum sapiente molestias porro dicta illo eum tenetur?</p>
-            <Link href='mailto:clement.fabien@clespy.fr' text='Contact Me!' style='secondary'/>
+            <p>
+                Hi! I am Clément.
+                I am a 3rd year student in computer science engineering at EPITA.
+                I have always been fascinated about computer science and programming.
+                I also love to learn and discover new technologies!
+            </p>
+            <Link href='/about/' text='👋 About Me!' style='secondary' />
+
+            <div class="icons">
+                <a href='https://github.com/Clespy13' target="_blank" class:list={["linkIcon"]}><Icon class="icon" name="mdi:github" height={24} width={24}/></a>
+                <a href='https://gitlab.com/clespy' target="_blank" class:list={["linkIcon"]}><Icon class="icon" name="mdi:gitlab" height={24} width={24} /></a>
+                <a href='https://www.linkedin.com/in/cl%C3%A9ment-fabien-9a698124b/' target="_blank" class:list={["linkIcon"]}><Icon class="icon" name="mdi:linkedin" height={24} width={24} /></a>
+            </div>
         </div>
     </section>
+    <!--
     <section class="container" aria-label="Blog Posts">
         <h2 class="h1">Posts</h2>
         <div class="post-container">
@@ -28,5 +41,29 @@ const formattedPosts = formatPosts(allPosts, {
         }
         </div>
     </section>
+    -->
 </MainLayout>
 
+<style>
+    .icons {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        vertical-align: center;
+        gap: 24px;
+    }
+
+    .linkIcon {
+        border-radius: 50%;
+        border-color: var(--hue);
+        border-width: 2px;
+        border-style: solid;
+        width: 48px;
+        height: 48px;
+        display: flex;
+    }
+
+    .icon {
+        margin: auto;
+    }
+</style>
