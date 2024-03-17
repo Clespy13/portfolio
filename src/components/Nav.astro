@@ -11,7 +11,7 @@ import Link from './Link.astro'
         </a>
         <ul>
             {
-                navData.map((item) => <Link href={item.path} text={item.name} style='primary' isFilled={false} data-navlink/>)
+                navData.map((item) => <Link href={item.path} text={item.name} style='primary' isFilled={false} data-navlink data-astro-reload/>)
             }
         </ul>
     </div>

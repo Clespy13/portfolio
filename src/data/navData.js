@@ -9,7 +9,7 @@ const navData = [
     },
     {
         name: "Resume",
-        path: "/resume/",
+        path: "/resources/cv-clement-fabien.pdf",
     },
 ]
 
