@@ -1,6 +1,25 @@
 ---
 import MainLayout from '../layouts/MainLayout.astro'
 import Link from '../components/Link.astro'
+import PostCard from '../components/PostCard.astro'
+// import Pagination from '../components/Pagination.astro'
+// import CategoryCloud from "../components/CategoryCloud.astro";
+
+import { formatPosts } from '../js/utils'
+
+//export async function getStaticPaths({ paginate }) {
+const allPosts = await Astro.glob("./projects/*.md");
+const formattedPosts = formatPosts(allPosts);
+
+const allExpPosts = await Astro.glob("./experiences/*.md");
+const formattedExpPosts = formatPosts(allExpPosts);
+//
+//  return paginate(formattedPosts, {
+//    pageSize: 3,
+//  });
+//}
+
+// const { page } = Astro.props;
 ---
 
 <MainLayout title = "About - Clément Fabien">
@@ -8,9 +27,73 @@ import Link from '../components/Link.astro'
         <img src="/images/headshot.jpg" alt="My head" width="200" height="330" />
         <div class="content">
             <h1 class="h1">Clément Fabien</h1>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsum ipsa eaque placeat assumenda exercitationem nisi similique, velit perspiciatis dolorum sapiente molestias porro dicta illo eum tenetur? Delectus iste reiciendis ipsum repudiandae, inventore commodi modi adipisci laudantium ea aspernatur odio laborum.</p>
+            <p>
+                Since I was 12, I have always been passionate about computer science.
+                I started learning on my own with mini projects such as Discord bots in python.
+                As I grew up I have gotten more and more interested about programming and new technologies.
+                Since then, I always try to find new projects to learn new programming languages or new methods of problem solving.
+                After highschool I decided to do my studies at EPITA, a french engineering school specialised in computer science.
+                Since EPITA, I have learned heaps of new programming languages such as Ocaml, C#, C, Java, C++ and many more to come.
+                I have also been able to complete more complex projects such as a POSIX Shell in C, or even a compiler for the toy language <i>Tiger</i>.
+            </p>
+
             <Link href='mailto:clement.fabien@clespy.fr' text='Contact Me!' style='primary'/>
         </div>
     </section>
+
+    <div class="section">
+        <h2 class="h2">Projects I've done</h2>
+        <div class="post-container">
+        {
+            (formattedPosts as any).map((post) => <PostCard frontmatter={post.frontmatter} url={post.url} tagType="h2"/>)
+        }
+        </div>
+    </div>
+
+    <div class="section">
+        <h2 class="h2">Experiences</h2>
+        <div class="altern">
+        {
+            (formattedExpPosts as any).map((post) => <PostCard frontmatter={post.frontmatter} url={post.url} tagType="h2" />)
+        }
+        </div>
+    </div>
+
 </MainLayout>
 
+<style>
+    .section {
+        display: flex;
+        flex-direction: column;
+        width: 75%;
+        margin: auto;
+        align-items: center;
+        text-align: center;
+    }
+
+    .altern {
+      margin-block: var(--space-md);
+      display: grid;
+      gap: var(--space-md);
+      align-items: center;
+      width: 32%;
+
+      @media (--md) {
+        grid-template-columns: 1fr;
+      }
+
+      @media (--lg) {
+          grid-template-columns: 1fr;
+      }
+    }
+
+    .altern > img {
+        width: fit-content;
+        margin: auto;
+    }
+
+    .section > .h2 {
+        margin: auto;
+    }
+
+</style>
