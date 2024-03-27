@@ -12,17 +12,17 @@ const Tag = tagType
 const { title, date, author, image, description, category} = frontmatter
 ---
 
-<article class="card">
+<article class="card" style="height: -webkit-fill-available;">
     <small>
-        <a href={`/category/${slugify(category)}/`} class="badge">{category}</a>
+        <span class="badge">{category}</span>
     </small>
-    <a href={url} aria-hidden="true" tabindex="-1">
-        <Image src={image.src} alt={image.alt} width={400} height={250} format='avif' quality={80}/>
+    <a href={url} aria-hidden="true" tabindex="-1" class="imageLink" >
+        <Image src={image.src} alt={image.alt} width={400} height={250} format='avif' quality={80} style="width: 50%; height: auto; margin: auto;"/>
     </a>
     <div class="content">
         <div>
         <Tag class="h3"><a href={url}>{title}</a></Tag>
-        <small>by <a href={`/author/${slugify(author)}/`}>{author}</a> • {formatDate(date)}</small>
+        <small>by <span>{author}</span> • {formatDate(date)}</small>
         </div>
         <p>{description}</p>
     </div>

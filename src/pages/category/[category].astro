@@ -7,7 +7,7 @@ import { slugify, formatPosts } from '../../js/utils'
 
 export async function getStaticPaths()
 {
-    const allPosts = await Astro.glob("../blog/*.md")
+    const allPosts = await Astro.glob("../experiences/*.md")
     const formattedPosts = formatPosts(allPosts)
     const allCategories = [...new Set(
         formattedPosts.map((post) => post.frontmatter.category).flat(),

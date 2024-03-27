@@ -4,7 +4,7 @@ title: Fallen
 date: 2024-01
 author: Clément FABIEN
 image: {
-  src: "/images/Fallen.jpg",
+  src: "/images/Fallen.png",
   alt: "A picture of a game engine",
 }
 description: A story about a game engine written in C++
