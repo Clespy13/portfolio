@@ -3,5 +3,6 @@ version: "0.1"
 services:
   app:
     image: portfolio:latest
+    restart: unless-stopped
     ports:
       - "8080:8080"
