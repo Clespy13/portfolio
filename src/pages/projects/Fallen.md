@@ -7,7 +7,7 @@ image: {
   src: "/images/Fallen.png",
   alt: "A picture of a game engine",
 }
-description: A story about a game engine written in C++
+description: An in development game engine written in C++
 draft: false
 category: C++
 ---
