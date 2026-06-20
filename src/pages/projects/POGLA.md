@@ -1,6 +1,6 @@
 ---
 layout: "../../layouts/BlogPost.astro"
-title: POGL
+title: POGLA
 date: 2025-01
 author: Clément FABIEN
 image: {
@@ -9,7 +9,7 @@ image: {
 }
 description: A project aimed at making an optimised terrain generator with LOD using tessellation shaders in C++ and OpenGL
 draft: false
-category: OpenGL C++
+category: OpenGL | C++
 ---
 
 

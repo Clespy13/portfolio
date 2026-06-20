@@ -9,6 +9,6 @@ image: {
 }
 description: A project aimed at making a 3D Scene Renderer in C++ and OpenGL
 draft: false
-category: OpenGL C++
+category: OpenGL | C++
 ---
 

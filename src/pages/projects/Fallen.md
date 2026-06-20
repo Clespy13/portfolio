@@ -9,6 +9,6 @@ image: {
 }
 description: An in development game engine written in C++
 draft: false
-category: C++
+category: OpenGL | C++
 ---
 
