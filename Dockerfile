@@ -9,16 +9,6 @@ COPY . .
 RUN npm run build
 RUN npm run astro preferences disable devToolbar
 
-FROM node:lts-alpine3.23 AS runtime
-WORKDIR /app
-
-COPY --from=builder /app/dist ./dist
-COPY package*.json ./
-
-RUN npm ci --omit=dev
-
-ENV HOST=0.0.0.0
-ENV PORT=8080
-
-EXPOSE 8080
-CMD ["npm", "run", "preview", "--", "--host", "0.0.0.0", "--port", "8080"]
+FROM nginx:alpine
+COPY --from=builder /app/dist /usr/share/nginx/html
+EXPOSE 80
