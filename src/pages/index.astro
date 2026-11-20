@@ -6,7 +6,9 @@ import { Icon } from 'astro-icon/components'
 
 import { formatPosts } from '../js/utils'
 
-const allPosts = await Astro.glob("./blog/*.md")
+const allPosts = Object.values(
+  import.meta.glob('./blog/*.md', { eager: true })
+);
 const formattedPosts = formatPosts(allPosts, {
     limit: 3,
 });

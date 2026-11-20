@@ -7,7 +7,9 @@ import { slugify, formatPosts } from '../../js/utils'
 
 export async function getStaticPaths()
 {
-    const allPosts = await Astro.glob("../blog/*.md")
+    const allPosts = Object.values(
+      import.meta.glob('../blog/*.md', { eager: true })
+    );
     const formattedPosts = formatPosts(allPosts)
     const allAuthors = [...new Set(
         formattedPosts.map((post) => post.frontmatter.author).flat(),

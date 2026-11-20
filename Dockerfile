@@ -1,4 +1,4 @@
-FROM node:lts AS builder
+FROM node:lts-alpine3.23 AS builder
 WORKDIR /app
 
 COPY package*.json ./
@@ -9,7 +9,7 @@ COPY . .
 RUN npm run build
 RUN npm run astro preferences disable devToolbar
 
-FROM node:lts AS runtime
+FROM node:lts-alpine3.23 AS runtime
 WORKDIR /app
 
 COPY --from=builder /app/dist ./dist

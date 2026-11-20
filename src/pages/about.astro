@@ -8,10 +8,14 @@ import PostCard from '../components/PostCard.astro'
 import { formatPosts } from '../js/utils'
 
 //export async function getStaticPaths({ paginate }) {
-const allPosts = await Astro.glob("./projects/*.md");
+const allPosts = Object.values(
+    import.meta.glob('./projects/*.md', { eager: true })
+);
 const formattedPosts = formatPosts(allPosts);
 
-const allExpPosts = await Astro.glob("./experiences/*.md");
+const allExpPosts = Object.values(
+    import.meta.glob('./experiences/*.md', { eager: true })
+);
 const formattedExpPosts = formatPosts(allExpPosts);
 //
 //  return paginate(formattedPosts, {

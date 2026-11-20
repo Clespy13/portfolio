@@ -7,7 +7,9 @@ import CategoryCloud from "../../components/CategoryCloud.astro";
 import { formatPosts } from '../../js/utils'
 
 export async function getStaticPaths({ paginate }) {
-  const allPosts = await Astro.glob("./*.md");
+  const allPosts = Object.values(
+    import.meta.glob('./*.md', { eager: true })
+  );
   const formattedPosts = formatPosts(allPosts);
 
   return paginate(formattedPosts, {
